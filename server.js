@@ -1,4 +1,7 @@
 // import 
+// require("dotenv").config()
+import dotenv from "dotenv"
+dotenv.config()
 import express from "express"
 import mongoose from "mongoose"
 import Pusher from "pusher"
@@ -23,7 +26,7 @@ app.use(cors())
 app.use(express.json())
 
 // db config
-const mongoURI = "mongodb+srv://admin:IdfQQQ9d9TZao1LM@cluster0.72kul.mongodb.net/imessageDB?retryWrites=true&w=majority"
+const mongoURI = process.env.MONGO_KEY
 
 mongoose.connect(mongoURI, {
     useCreateIndex: true,
